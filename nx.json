@@ -12,9 +12,12 @@
   "npmScope": "ecommerce",
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
+      "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "accessToken": "ZjU2YTNmMDYtZDRkNi00YWQ4LTlkMmQtNDJmZTJlYWJlYTZmfHJlYWQtd3JpdGU=",
+        "canTrackAnalytics": false,
+        "showUsageWarnings": true
       }
     }
   },
@@ -25,6 +28,24 @@
     "ekart-e2e": {
       "tags": [],
       "implicitDependencies": ["ekart"]
+    },
+    "ui-navbar": {
+      "tags": []
+    },
+    "shared-material": {
+      "tags": []
+    },
+    "features-search": {
+      "tags": []
+    },
+    "shared-services": {
+      "tags": []
+    },
+    "features-cart": {
+      "tags": []
+    },
+    "features-collection": {
+      "tags": []
     }
   }
 }
