@@ -1,0 +1,152 @@
+{
+  "version": 1,
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "defaultProject": "ekart",
+  "schematics": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
+  },
+  "projects": {
+    "ekart": {
+      "projectType": "application",
+      "root": "apps/ekart",
+      "sourceRoot": "apps/ekart/src",
+      "prefix": "ecommerce",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/ekart",
+            "index": "apps/ekart/src/index.html",
+            "main": "apps/ekart/src/main.ts",
+            "polyfills": "apps/ekart/src/polyfills.ts",
+            "tsConfig": "apps/ekart/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": ["apps/ekart/src/favicon.ico", "apps/ekart/src/assets"],
+            "styles": ["apps/ekart/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/ekart/src/environments/environment.ts",
+                  "with": "apps/ekart/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "ekart:build:production"
+            },
+            "development": {
+              "browserTarget": "ekart:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ekart:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/ekart/src/**/*.ts",
+              "apps/ekart/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/ekart"],
+          "options": {
+            "jestConfig": "apps/ekart/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ekart-e2e": {
+      "root": "apps/ekart-e2e",
+      "sourceRoot": "apps/ekart-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/ekart-e2e/cypress.json",
+            "tsConfig": "apps/ekart-e2e/tsconfig.e2e.json",
+            "devServerTarget": "ekart:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ekart:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/ekart-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    }
+  }
+}
