@@ -300,6 +300,131 @@
           }
         }
       }
+    },
+    "shared-bookinfo": {
+      "projectType": "library",
+      "root": "libs/shared/bookinfo",
+      "sourceRoot": "libs/shared/bookinfo/src",
+      "prefix": "ecommerce",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/bookinfo"],
+          "options": {
+            "jestConfig": "libs/shared/bookinfo/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/bookinfo/src/**/*.ts",
+              "libs/shared/bookinfo/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "features-billing": {
+      "projectType": "library",
+      "root": "libs/features/billing",
+      "sourceRoot": "libs/features/billing/src",
+      "prefix": "ecommerce",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/features/billing"],
+          "options": {
+            "jestConfig": "libs/features/billing/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/features/billing/src/**/*.ts",
+              "libs/features/billing/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "ui-mat-card-list": {
+      "projectType": "library",
+      "root": "libs/ui/mat-card-list",
+      "sourceRoot": "libs/ui/mat-card-list/src",
+      "prefix": "ecommerce",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/mat-card-list"],
+          "options": {
+            "jestConfig": "libs/ui/mat-card-list/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui/mat-card-list/src/**/*.ts",
+              "libs/ui/mat-card-list/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "shared-dialog": {
+      "projectType": "library",
+      "root": "libs/shared/dialog",
+      "sourceRoot": "libs/shared/dialog/src",
+      "prefix": "ecommerce",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/dialog"],
+          "options": {
+            "jestConfig": "libs/shared/dialog/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/dialog/src/**/*.ts",
+              "libs/shared/dialog/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "shared-star-rating": {
+      "projectType": "library",
+      "root": "libs/shared/star-rating",
+      "sourceRoot": "libs/shared/star-rating/src",
+      "prefix": "ecommerce",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/star-rating"],
+          "options": {
+            "jestConfig": "libs/shared/star-rating/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/star-rating/src/**/*.ts",
+              "libs/shared/star-rating/src/**/*.html"
+            ]
+          }
+        }
+      }
     }
   }
 }

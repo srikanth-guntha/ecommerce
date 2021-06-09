@@ -22,7 +22,12 @@
       "@ecommerce/features/cart": ["libs/features/cart/src/index.ts"],
       "@ecommerce/features/collection": [
         "libs/features/collection/src/index.ts"
-      ]
+      ],
+      "@ecommerce/shared/bookinfo": ["libs/shared/bookinfo/src/index.ts"],
+      "@ecommerce/features/billing": ["libs/features/billing/src/index.ts"],
+      "@ecommerce/ui/mat-card-list": ["libs/ui/mat-card-list/src/index.ts"],
+      "@ecommerce/shared/dialog": ["libs/shared/dialog/src/index.ts"],
+      "@ecommerce/shared/star-rating": ["libs/shared/star-rating/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -46,6 +46,21 @@
     },
     "features-collection": {
       "tags": []
+    },
+    "shared-bookinfo": {
+      "tags": []
+    },
+    "features-billing": {
+      "tags": []
+    },
+    "ui-mat-card-list": {
+      "tags": []
+    },
+    "shared-dialog": {
+      "tags": []
+    },
+    "shared-star-rating": {
+      "tags": []
     }
   }
 }

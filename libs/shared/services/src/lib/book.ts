@@ -1,9 +1,6 @@
 export interface Book {
-  etag: string;
-  embeddable: boolean;
-  id: string;
-  selfLink: string;
-  volumeInfo: volumeInfo;
+  id?: string;
+  volumeInfo?: volumeInfo;
 }
 
 export interface volumeInfo {
@@ -14,8 +11,9 @@ export interface volumeInfo {
   };
   language: string;
   pageCount: number;
+  printedPageCount: number;
   publisher: string;
-  subtitle: string;
   title: string;
+  subtitle: string;
   description: string;
 }

@@ -4,25 +4,4 @@
         <input type="text" matInput [formControl]="searchString">
     </mat-form-field>
     </form>
-    
-    <div class="cardList" fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start" >
-        <ng-template ngFor let-book [ngForOf]="searchBooks">
-            <mat-card class="book-card" fxFlex="0 1 calc(33.3% - 32px)">
-                <mat-card-header>
-                  <img mat-card-avatar class="book-header-image" [src]="book.volumeInfo.imageLinks.thumbnail">
-                  <mat-card-title class="book--title">{{book.volumeInfo.title}}</mat-card-title>
-                  <mat-card-subtitle class="book--subtitle">{{book.volumeInfo.subtitle}}</mat-card-subtitle>
-                </mat-card-header>
-                <img mat-card-image [src]="book.volumeInfo.imageLinks.thumbnail" alt="Photo of a Book">
-                <mat-card-content class="book--description">
-                  <p>
-                   {{book.volumeInfo.description}}
-                  </p>
-                </mat-card-content>
-                <mat-card-footer>
-                  <mat-card-title>Written By</mat-card-title>
-                  <mat-card-subtitle>{{book.volumeInfo.authors[0]}}</mat-card-subtitle>
-                </mat-card-footer>
-              </mat-card>
-        </ng-template>
-    </div>
+    <ecommerce-mat-card-list [showDelete]="showDelete" [bookList]="searchBooks"></ecommerce-mat-card-list>

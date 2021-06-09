@@ -4,7 +4,10 @@
         <a *ngFor="let listItem of navList"
            mat-list-item  
            [routerLink]="listItem" 
-           (click)="sidenav.toggle()"> {{listItem}}</a>
+           (click)="sidenav.toggle()" >  
+           <span *ngIf="listItem === 'cart'" matBadge="{{badgeNumber}}" matBadgePosition="after" matBadgeColor="accent" matBadgeOverlap="false">{{listItem}}</span>
+           <span *ngIf="listItem !== 'cart'" >{{listItem}}</span>
+          </a>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>

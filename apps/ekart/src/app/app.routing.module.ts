@@ -20,6 +20,18 @@ const routes: Routes = [
         (m) => m.FeaturesCollectionModule
       ),
   },
+  {
+    path: 'bookinfo',
+    loadChildren: () =>
+      import('@ecommerce/shared/bookinfo').then((m) => m.SharedBookinfoModule),
+  },
+  {
+    path: 'billing',
+    loadChildren: () =>
+      import('@ecommerce/features/billing').then(
+        (m) => m.FeaturesBillingModule
+      ),
+  },
 ];
 
 @NgModule({

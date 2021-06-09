@@ -7,5 +7,10 @@ module.exports = {
     '<rootDir>/libs/shared/services',
     '<rootDir>/libs/features/cart',
     '<rootDir>/libs/features/collection',
+    '<rootDir>/libs/shared/bookinfo',
+    '<rootDir>/libs/features/billing',
+    '<rootDir>/libs/ui/mat-card-list',
+    '<rootDir>/libs/shared/dialog',
+    '<rootDir>/libs/shared/star-rating',
   ],
 };

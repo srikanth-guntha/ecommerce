@@ -13,6 +13,7 @@ import { Book } from '@ecommerce/shared/services';
 export class SearchComponent implements OnInit {
   public searchString: FormControl = new FormControl();
   public searchBooks: Book[] = [];
+  public showDelete: boolean = false;
 
   constructor(private searchService: searchService, private router: Router) {}
 
@@ -24,7 +25,6 @@ export class SearchComponent implements OnInit {
     this.searchString.valueChanges
       .pipe(
         debounceTime(500),
-        distinctUntilChanged(),
         switchMap((val) => this.searchService.getBooksBySearch(val))
       )
       .subscribe((response: any) => {

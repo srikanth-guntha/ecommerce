@@ -12,6 +12,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatBadgeModule } from '@angular/material/badge';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -22,6 +26,9 @@ import { MatButtonModule } from '@angular/material/button';
     MatSidenavModule,
     MatToolbarModule,
     MatButtonModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatBadgeModule,
   ],
   exports: [
     MatCardModule,
@@ -31,6 +38,9 @@ import { MatButtonModule } from '@angular/material/button';
     MatSidenavModule,
     MatToolbarModule,
     MatButtonModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatBadgeModule,
   ],
   providers: [
     { provide: MatBottomSheetRef, useValue: {} },
