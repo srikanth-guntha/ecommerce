@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { BadgeService } from '@ecommerce/shared/services';
 import { Subscription } from 'rxjs';
 
@@ -7,7 +7,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
   public navList: string[] = [];
   public badgeNumber!: number;
   subscription: Subscription = new Subscription();
@@ -20,5 +20,9 @@ export class NavbarComponent implements OnInit {
     this.subscription = this.badgeService.onMessage().subscribe((data: any) => {
       this.badgeNumber = data.number;
     });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

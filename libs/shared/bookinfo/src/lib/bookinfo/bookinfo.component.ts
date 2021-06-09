@@ -1,19 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BadgeService, BookService } from '@ecommerce/shared/services';
 import { Book } from '@ecommerce/shared/services';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'ecommerce-bookinfo',
   templateUrl: './bookinfo.component.html',
   styleUrls: ['./bookinfo.component.scss'],
 })
-export class BookinfoComponent implements OnInit {
+export class BookinfoComponent implements OnInit, OnDestroy {
   bookInfo: Book = {};
   bookId: string = '';
   books: Book[] = [];
   duplicateBook: boolean = false;
+  bookSubscription: Subscription = new Subscription();
 
   constructor(
     private router: ActivatedRoute,
@@ -28,9 +30,11 @@ export class BookinfoComponent implements OnInit {
 
   showBookInfo() {
     this.bookId = this.router.snapshot.queryParamMap.get('id') || '';
-    this.bookService.getBookInfo(this.bookId).subscribe((response) => {
-      this.bookInfo = response;
-    });
+    this.bookSubscription = this.bookService
+      .getBookInfo(this.bookId)
+      .subscribe((response) => {
+        this.bookInfo = response;
+      });
   }
 
   addToCart(book: Book) {
@@ -52,5 +56,9 @@ export class BookinfoComponent implements OnInit {
     this.route.navigate(['/billing'], {
       queryParams: { data: JSON.stringify(book) },
     });
+  }
+
+  ngOnDestroy() {
+    this.bookSubscription.unsubscribe();
   }
 }
