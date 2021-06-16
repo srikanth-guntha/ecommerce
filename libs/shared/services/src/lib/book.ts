@@ -1,5 +1,5 @@
 export interface Book {
-  id?: string;
+  id: string;
   volumeInfo?: volumeInfo;
 }
 
@@ -11,9 +11,14 @@ export interface volumeInfo {
   };
   language: string;
   pageCount: number;
-  printedPageCount: number;
-  publisher: string;
+  printedPageCount?: number;
+  publisher?: string;
   title: string;
-  subtitle: string;
-  description: string;
+  subtitle?: string;
+  description?: string;
+}
+
+export interface Books {
+  items: Book[];
+  kind: string;
 }

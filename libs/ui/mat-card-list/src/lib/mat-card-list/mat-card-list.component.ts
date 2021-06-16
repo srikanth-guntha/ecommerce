@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Book } from '@ecommerce/shared/services';
 import { Router } from '@angular/router';
 
@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './mat-card-list.component.html',
   styleUrls: ['./mat-card-list.component.scss'],
 })
-export class MatCardListComponent implements OnInit {
+export class MatCardListComponent {
   @Input()
   bookList!: Book[];
   @Input()
@@ -16,8 +16,6 @@ export class MatCardListComponent implements OnInit {
   @Output() deleteBook = new EventEmitter();
 
   constructor(private router: Router) {}
-
-  ngOnInit(): void {}
 
   showBookInfo(book: Book) {
     this.router.navigate(['/bookinfo'], { queryParams: { id: book.id } });
@@ -28,7 +26,7 @@ export class MatCardListComponent implements OnInit {
     this.deleteBook.emit(book);
   }
 
-  trackByFn(book: any): string {
+  trackByFn(index: number, book: Book): string {
     return book.id;
   }
 }

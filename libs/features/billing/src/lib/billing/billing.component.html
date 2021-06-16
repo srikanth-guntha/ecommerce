@@ -36,7 +36,7 @@
             <span *ngIf="billingForm.get('address')?.errors?.required">Address is required</span>
           </mat-error>
         </mat-form-field>
-        <button mat-raised-button [disabled]="!billingForm.valid" color="primary" type="submit">Buy</button>
+        <button id="submit-button" mat-raised-button [disabled]="!billingForm.valid" color="primary" type="submit">Buy</button>
       </form>
     </div>
   </div>

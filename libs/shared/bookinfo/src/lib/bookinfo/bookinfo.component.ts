@@ -11,10 +11,12 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./bookinfo.component.scss'],
 })
 export class BookinfoComponent implements OnInit, OnDestroy {
-  bookInfo: Book = {};
-  bookId: string = '';
+  bookInfo: Book = {
+    id: '',
+  };
+  bookId = '';
   books: Book[] = [];
-  duplicateBook: boolean = false;
+  duplicateBook = false;
   bookSubscription: Subscription = new Subscription();
 
   constructor(
@@ -39,7 +41,7 @@ export class BookinfoComponent implements OnInit, OnDestroy {
 
   addToCart(book: Book) {
     this.books.push(...JSON.parse(localStorage.getItem('cart') || '[]'));
-    this.books.forEach((eachBook: any) => {
+    this.books.forEach((eachBook: Book) => {
       if (eachBook.id == book.id) {
         this.duplicateBook = true;
       }
@@ -48,7 +50,7 @@ export class BookinfoComponent implements OnInit, OnDestroy {
       this.books.push(book);
       localStorage.setItem('cart', JSON.stringify(this.books));
     }
-    let cartItems = JSON.parse(localStorage.getItem('cart') || '[]');
+    const cartItems = JSON.parse(localStorage.getItem('cart') || '[]');
     this.badgeService.sendMessage(cartItems.length);
   }
 

@@ -9,7 +9,7 @@ import { BadgeService, Book } from '@ecommerce/shared/services';
 })
 export class CartComponent implements OnInit {
   public cartItems: Book[] = [];
-  public showDelete: boolean = true;
+  public showDelete = true;
   constructor(private router: Router, private badgeService: BadgeService) {}
 
   ngOnInit(): void {

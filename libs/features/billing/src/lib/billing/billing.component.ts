@@ -7,13 +7,8 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { DialogComponent } from '@ecommerce/shared/dialog';
-import { BadgeService } from '@ecommerce/shared/services';
-
-import {
-  MatDialog,
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-} from '@angular/material/dialog';
+import { BadgeService, Book } from '@ecommerce/shared/services';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'ecommerce-billing',
@@ -23,7 +18,7 @@ import {
 export class BillingComponent implements OnInit {
   billingForm: FormGroup;
   imagePath: string;
-  booksCollection: any = [];
+  booksCollection: Book[] = [];
   book: any = {};
   matDialogRef!: MatDialogRef<DialogComponent>;
 
@@ -46,9 +41,6 @@ export class BillingComponent implements OnInit {
   }
 
   submit() {
-    if (this.billingForm.invalid) {
-      return;
-    }
     this.booksCollection.push(
       ...JSON.parse(localStorage.getItem('bookCollection') || '[]')
     );
@@ -73,13 +65,5 @@ export class BillingComponent implements OnInit {
     this.matDialogRef = this.matDialog.open(DialogComponent, {
       data: { message },
     });
-  }
-
-  CloseDialog() {
-    this.matDialogRef.close(false);
-  }
-
-  checkError(controlName: string, errorName: string) {
-    return this.billingForm.controls[controlName].hasError(errorName);
   }
 }

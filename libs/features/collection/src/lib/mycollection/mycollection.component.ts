@@ -8,9 +8,7 @@ import { Book } from '@ecommerce/shared/services';
 })
 export class MycollectionComponent implements OnInit {
   public bookCollection!: Book[];
-  public showDelete: boolean = false;
-
-  constructor() {}
+  public showDelete = false;
 
   ngOnInit(): void {
     this.showCollection();

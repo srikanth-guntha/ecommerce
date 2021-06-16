@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'ecommerce-star-rating',
   templateUrl: './star-rating.component.html',
   styleUrls: ['./star-rating.component.scss'],
 })
-export class StarRatingComponent implements OnInit {
+export class StarRatingComponent {
   selectedRating = 0;
   stars = [
     {
@@ -35,11 +35,7 @@ export class StarRatingComponent implements OnInit {
     },
   ];
 
-  constructor() {}
-
-  ngOnInit(): void {}
-
-  selectStar(value: any): void {
+  selectStar(value: number): void {
     // prevent multiple selection
     if (this.selectedRating === 0) {
       this.stars.filter((star) => {

@@ -15,11 +15,17 @@ export class NavbarComponent implements OnInit, OnDestroy {
   constructor(private badgeService: BadgeService) {}
 
   ngOnInit(): void {
+    this.displayNavList();
+  }
+
+  displayNavList() {
     this.navList = ['search', 'cart', 'collection'];
     this.badgeNumber = JSON.parse(localStorage.getItem('cart') || '[]').length;
-    this.subscription = this.badgeService.onMessage().subscribe((data: any) => {
-      this.badgeNumber = data.number;
-    });
+    this.subscription = this.badgeService
+      .onMessage()
+      .subscribe((data: { number: number }) => {
+        this.badgeNumber = data.number;
+      });
   }
 
   ngOnDestroy() {

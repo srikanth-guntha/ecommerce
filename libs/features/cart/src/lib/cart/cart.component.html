@@ -1,2 +1,2 @@
 <ecommerce-mat-card-list [showDelete]="showDelete" [bookList]="cartItems" (deleteBook)="deleteCartItem($event)"></ecommerce-mat-card-list>
-<button *ngIf="cartItems.length" mat-button class="purchase-button" color="ascent"  (click)="proceedToPurchase(cartItems)">ProceedToBuy</button>
+<button *ngIf="cartItems.length" mat-button class="buy-button button" color="ascent"  (click)="proceedToPurchase(cartItems)">ProceedToBuy</button>

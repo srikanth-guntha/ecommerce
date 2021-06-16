@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedMaterialModule } from '@ecommerce/shared/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { DialogComponent } from './dialog.component';
 
 describe('DialogComponent', () => {
@@ -8,9 +10,13 @@ describe('DialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DialogComponent ]
-    })
-    .compileComponents();
+      declarations: [DialogComponent],
+      imports: [SharedMaterialModule, BrowserAnimationsModule],
+      providers: [
+        { provide: MatDialogRef, useValue: {} },
+        { provide: MAT_DIALOG_DATA, useValue: {} },
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +25,7 @@ describe('DialogComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should dialog component defined', () => {
     expect(component).toBeTruthy();
   });
 });

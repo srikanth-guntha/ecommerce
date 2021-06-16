@@ -1,6 +1,6 @@
-<div class="cardList" fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start" *ngIf="bookList">
+<div class="cardList" fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="32px" fxLayoutAlign="flex-start" *ngIf="bookList">
     <ng-template ngFor let-book [ngForOf]="bookList" let-i="index" [ngForTrackBy]="trackByFn">
-        <mat-card class="book-card" fxFlex="0 1 calc(33.3% - 32px)" (click)="showBookInfo(book)">
+        <mat-card class="book-card" fxFlex.sm="100%" fxFlex="0 1 calc(33.3% - 32px)" (click)="showBookInfo(book)">
             <mat-card-header>
               <img mat-card-avatar class="book-header-image" [src]="book?.volumeInfo?.imageLinks?.thumbnail">
               <mat-card-title class="book-title">{{book?.volumeInfo?.title}}</mat-card-title>

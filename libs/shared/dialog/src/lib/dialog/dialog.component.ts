@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'ecommerce-dialog',
@@ -7,8 +8,9 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./dialog.component.scss'],
 })
 export class DialogComponent implements OnInit {
-  public message: string = '';
-  constructor(@Inject(MAT_DIALOG_DATA) private data: any) {}
+  public message = '';
+  matDialogRef!: MatDialogRef<DialogComponent>;
+  constructor(@Inject(MAT_DIALOG_DATA) private data: { message: string }) {}
 
   ngOnInit(): void {
     this.message = this.data.message;

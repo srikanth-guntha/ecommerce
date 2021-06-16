@@ -5,15 +5,14 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class BadgeService {
-  public subject = new Subject<any>();
+  public subject = new Subject<{ number: number }>();
   public badgeSubject = this.subject.asObservable();
-  constructor() {}
 
   sendMessage(badgeNumber: number) {
     this.subject.next({ number: badgeNumber });
   }
 
-  onMessage(): Observable<any> {
+  onMessage(): Observable<{ number: number }> {
     return this.subject.asObservable();
   }
 }
