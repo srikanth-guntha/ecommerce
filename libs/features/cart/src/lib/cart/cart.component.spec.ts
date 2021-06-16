@@ -45,7 +45,7 @@ describe('CartComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should call displayCartItems', () => {
+  it('should spy displayCartItems', () => {
     const displayCartItemsSpy = jest.spyOn(component, 'displayCartItems');
     component.ngOnInit();
     expect(displayCartItemsSpy).toHaveBeenCalled();
@@ -57,7 +57,7 @@ describe('CartComponent', () => {
     fixture.detectChanges();
     expect(component.cartItems.length).toBe(10);
   });
-  it('should call deleteCartItems and cart length should be zero', () => {
+  it('should call deleteCartItems and cart length should be 9', () => {
     localStorage.setItem('cart', JSON.stringify(data));
     component.ngOnInit();
     const sendMessageSpy = jest.spyOn(BadgeServiceMock, 'sendMessage');
@@ -68,7 +68,7 @@ describe('CartComponent', () => {
     expect(component.cartItems.length).toBe(9);
   });
 
-  it('proceed to purchase takes you to billing page', () => {
+  it('proceed to purchase should spy when clicked in proceed to purchase button', () => {
     localStorage.setItem('cart', JSON.stringify(data));
     component.ngOnInit();
     fixture.detectChanges();
@@ -76,14 +76,5 @@ describe('CartComponent', () => {
     const Element = fixture.debugElement.query(By.css('.buy-button'));
     Element.nativeElement.click();
     expect(proceedToPurchaseSpy).toHaveBeenCalled();
-  });
-
-  it('proceed to purchase takes you to billing page', () => {
-    component.cartItems = [{ id: '1' }];
-    localStorage.setItem('cart', JSON.stringify(component.cartItems));
-    fixture.detectChanges();
-    const Element = fixture.debugElement.query(By.css('.buy-button'));
-    Element.nativeElement.click();
-    expect(mockRouter.navigate).toHaveBeenCalled();
   });
 });

@@ -24,7 +24,7 @@ describe('MycollectionComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should call showCollection method', () => {
+  it('should spy showCollection method', () => {
     const showCollectionSpy = jest.spyOn(component, 'showCollection');
     component.ngOnInit();
     expect(showCollectionSpy).toHaveBeenCalled();

@@ -52,7 +52,7 @@ describe('MatCardListComponent', () => {
     expect(component.deleteBook.emit).toHaveBeenCalled();
   });
 
-  it('should spy on naviage of router', () => {
+  it('should spy on navigate of router', () => {
     component.showBookInfo(bookInfo);
     fixture.detectChanges();
     expect(mockRouter.navigate).toHaveBeenCalled();

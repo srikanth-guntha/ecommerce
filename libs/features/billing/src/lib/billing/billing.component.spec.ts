@@ -67,7 +67,7 @@ describe('BillingComponent', () => {
     expect(component.billingForm.valid).toBeFalsy();
   });
 
-  it(' billing form should be valid if user enters details ', () => {
+  it(' billing form should be valid if user enter valid details ', () => {
     component.billingForm.controls.name.setValue('abc');
     component.billingForm.controls.email.setValue('abc@gmail.com');
     component.billingForm.controls.phone.setValue('234');
@@ -79,7 +79,7 @@ describe('BillingComponent', () => {
     expect(component.billingForm.valid).toBeTruthy();
   });
 
-  it(' submit should call if billing form is valid ', () => {
+  it('should submit spy if billing form is valid ', () => {
     spyOn(component, 'submit');
     component.billingForm.controls.name.setValue('abc');
     component.billingForm.controls.email.setValue('abc@gmail.com');

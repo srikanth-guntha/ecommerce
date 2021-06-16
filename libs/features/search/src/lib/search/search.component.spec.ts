@@ -56,7 +56,7 @@ describe('SearchComponent', () => {
 
   it(' should spyon showBooksBySearch', () => {
     const showBooksBySearchSpy = jest.spyOn(component, 'showBooksBySearch');
-    component.showBooksBySearch();
+    component.ngOnInit();
     expect(showBooksBySearchSpy).toHaveBeenCalled();
   });
 
